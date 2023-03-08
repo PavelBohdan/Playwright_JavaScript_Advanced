@@ -1,0 +1,23 @@
+{
+  "name": "playwright_javascript_advanced",
+  "version": "1.0.0",
+  "description": "Automation software testing with Playwright",
+  "main": "index.js",
+  "scripts": {},
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/PavelBohdan/Playwright_JavaScript_Advanced.git"
+  },
+  "author": "PavelBohdan",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/PavelBohdan/Playwright_JavaScript_Advanced/issues"
+  },
+  "homepage": "https://github.com/PavelBohdan/Playwright_JavaScript_Advanced#readme",
+  "dependencies": {
+    "prettier": "^2.8.4"
+  },
+  "devDependencies": {
+    "@playwright/test": "^1.31.2"
+  }
+}
