@@ -22,6 +22,9 @@ test.describe('Login / Logout flow', () => {
         await page.getByRole('textbox', { name: 'Login' }).type('username');
         await page.getByRole('textbox', { name: 'Password' }).type('password');
         await page.getByRole('button', { name: 'Sign in' }).click();
+        await page.goBack();
+        const loginName = page.locator('//a[@class="dropdown-toggle"]').nth(1)
+        await expect(loginName).toHaveText('username')
     });
 
 

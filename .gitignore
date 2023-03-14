@@ -142,6 +142,9 @@ _TeamCity*
 *.coveragexml
 
 # NCrunch
+/test-results/
+/playwright-report/
+/playwright/.cache/
 _NCrunch_*
 .*crunch*.local.xml
 nCrunchTemp_*
@@ -348,6 +351,9 @@ MigrationBackup/
 
 # Ionide (cross platform F# VS Code tools) working folder
 .ionide/
+/test-results/
+/playwright-report/
+/playwright/.cache/
 /test-results/
 /playwright-report/
 /playwright/.cache/
