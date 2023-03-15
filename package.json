@@ -4,11 +4,12 @@
   "description": "Automation software testing with Playwright",
   "main": "index.js",
   "scripts": {
-    "test:chrome": "playwright test --config=playwright.config.js --project=chromium",
+    "test:chromium": "playwright test --config=playwright.config.js --project=chromium",
     "test:firefox": "playwright test --config=playwright.config.js --project=firefox",
     "test:e2e:chromium": "playwright test --config=e2e.config.js --project=chromium",
     "test:e2e:firefox": "playwright test --config=e2e.config.js --project=firefox",
-    "test:e2e:webkit": "playwright test --config=e2e.config.js --project=webkit"
+    "test:e2e:webkit": "playwright test --config=e2e.config.js --project=webkit",
+    "test:e2e:chrome": "playwright test --config=e2e.config.js --project=GoogleChrome"
   },
   "repository": {
     "type": "git",

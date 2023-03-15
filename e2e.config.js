@@ -42,6 +42,7 @@ export default defineConfig({
         trace: 'on-first-retry',
         screenshot: 'only-on-failure',
         headless: false,
+        ignoreHTTPSErrors: true
     },
 
     /* Configure projects for major browsers */
@@ -76,10 +77,10 @@ export default defineConfig({
         //   name: 'Microsoft Edge',
         //   use: { channel: 'msedge' },
         // },
-        // {
-        //   name: 'Google Chrome',
-        //   use: { channel: 'chrome' },
-        // },
+        {
+            name: 'GoogleChrome',
+            use: { channel: 'chrome' },
+        },
     ],
 
     /* Folder for test artifacts such as screenshots, videos, traces, etc. */
