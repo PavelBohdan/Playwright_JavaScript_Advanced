@@ -11,7 +11,7 @@ test.describe('Login / Logout flow', () => {
         await page.getByRole('button', { name: 'Signin' }).click();
         await page.getByRole('textbox', { name: 'Login' }).type('invalid_test');
         await page.getByRole('textbox', { name: 'Password' }).type('invalid_test');
-        await page.getByRole('button', { name: 'Signin' }).click();
+        await page.getByRole('button', { name: 'Sign in' }).click();
         const errorMessage = page.locator('//div[@class="alert alert-error"]');
         await expect(errorMessage).toContainText('Login and/or password are wrong.');
     });

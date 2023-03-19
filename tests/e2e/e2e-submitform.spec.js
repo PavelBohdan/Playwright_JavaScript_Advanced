@@ -1,6 +1,6 @@
 import { test, expect } from '@playwright/test';
 
-test.describe.only('Feedback form', () => {
+test.describe('Feedback form', () => {
     const nameInputField = '//input[@id="name"]';
     const emailInputField = '//input[@id="email"]';
     const subjectInputField = '//input[@id="subject"]';
