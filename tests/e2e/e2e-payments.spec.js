@@ -1,5 +1,6 @@
 import { test, expect } from '@playwright/test';
 import { HomePage } from '../../page-objects/HomePage';
+import { PaymentPage } from '../../page-objects/PaymentPage';
 
 test.describe('Payments', () => {
     test.beforeEach(async ({ page }) => {
@@ -11,17 +12,15 @@ test.describe('Payments', () => {
     });
 
     test('Should send new payment', async ({ page }) => {
-        await page.selectOption('//select[@id="sp_payee"]', 'Apple');
-        await page.click('//a[@id="sp_get_payee_details"]');
-        const appleAccountNumberMessage = page.locator('//i[@id="sp_payee_details"]');
-        await expect(appleAccountNumberMessage).toContainText('For 48944145651315 Apple account');
-        await page.selectOption('//select[@id="sp_account"]', 'Brokerage');
-        await page.type('//input[@id="sp_amount"]', '500');
-        await page.type('//input[@id="sp_date"]', '2023-03-14');
-        await page.type('//input[@id="sp_description"]', 'Simple description');
-        await page.click('//input[@id="pay_saved_payees"]');
-        const successMessage = page.locator('//div[@id="alert_content"]');
-        await expect(successMessage).toHaveText('The payment was successfully submitted.')
-        // await page.pause();
+        const paymentPage = new PaymentPage(page);
+        await paymentPage.payee.selectOption('Apple');
+        await paymentPage.payeeDetailsButton.click();
+        await expect(paymentPage.appleAccountNumberMessage).toContainText('For 48944145651315 Apple account');
+        await paymentPage.account.selectOption('Brokerage');
+        await paymentPage.amount.type('500');
+        await paymentPage.date.type('2023-03-14');
+        await paymentPage.description.type('Simple description');
+        await paymentPage.saveButton.click();
+        await expect(paymentPage.successMessage).toHaveText('The payment was successfully submitted.');
     });
 });

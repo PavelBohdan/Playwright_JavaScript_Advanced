@@ -1,11 +1,12 @@
 import { expect } from '@playwright/test';
 import { LoginPage } from './loginPage';
+import { AbstractPage } from './AbstractPage';
 
-export class HomePage {
+export class HomePage extends AbstractPage {
 
     //Init selectors using constructor
     constructor(page) {
-        this.page = page;
+        super(page);
         this.signInButton = page.getByRole('button', { name: 'Signin' });
         this.errorMessage = page.locator('//div[@class="alert alert-error"]');
         this.loginName = page.locator('//a[@class="dropdown-toggle"]').nth(1);

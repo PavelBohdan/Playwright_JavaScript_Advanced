@@ -1,4 +1,4 @@
-import { test, expect, selectors } from '@playwright/test';
+import { test } from '@playwright/test';
 import { HomePage } from '../../page-objects/HomePage';
 
 test.describe('Login / Logout flow', () => {
