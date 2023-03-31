@@ -14,7 +14,7 @@ export class FeedbackPage {
 
     };
 
-    async fillTheForm(userName, userEmail, userSubject, userText) {
+    async fillForm(userName, userEmail, userSubject, userText) {
         await this.feedbackButton.click();
         await this.nameInputField.fill(userName);
         await this.emailInputField.fill(userEmail);
@@ -22,7 +22,7 @@ export class FeedbackPage {
         await this.textFields.fill(userText);
     };
 
-    async clearTheForm() {
+    async clearForm() {
         await this.clearButton.click();
     };
 

@@ -1,15 +1,13 @@
 import { test, expect } from '@playwright/test';
+import { HomePage } from '../../page-objects/HomePage';
 
 test.describe('Payments', () => {
     test.beforeEach(async ({ page }) => {
-        await page.goto('http://zero.webappsecurity.com/');
-        await page.getByRole('button', { name: 'Signin' }).click();
-        await page.getByRole('textbox', { name: 'Login' }).type('username');
-        await page.getByRole('textbox', { name: 'Password' }).type('password');
-        await page.getByRole('button', { name: 'Sign in' }).click();
-        await page.goto('http://zero.webappsecurity.com/bank/pay-bills.html');
-        const loginName = page.locator('//a[@class="dropdown-toggle"]').nth(1);
-        await expect(loginName).toHaveText('username');
+        const homePage = new HomePage(page);
+        await homePage.navigateToPage();
+        await homePage.login('username', 'password');
+        await homePage.navigateToPage('http://zero.webappsecurity.com/bank/pay-bills.html');
+        await homePage.assertLogIn('username');
     });
 
     test('Should send new payment', async ({ page }) => {
