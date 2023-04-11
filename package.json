@@ -9,7 +9,10 @@
     "test:e2e:chromium": "playwright test --config=e2e.config.js --project=chromium",
     "test:e2e:firefox": "playwright test --config=e2e.config.js --project=firefox",
     "test:e2e:webkit": "playwright test --config=e2e.config.js --project=webkit",
-    "test:e2e:chrome": "playwright test --config=e2e.config.js --project=GoogleChrome"
+    "test:e2e:chrome": "playwright test --config=e2e.config.js --project=GoogleChrome",
+    "test:e2e:mobileChrome": "playwright test --config=e2e.config.js --project=MobileChrome",
+    "test:visual:chromium": "playwright test --config=visual.config.js --project=chromium",
+    "test:visual:firefox": "playwright test --config=visual.config.js --project=firefox"
   },
   "repository": {
     "type": "git",

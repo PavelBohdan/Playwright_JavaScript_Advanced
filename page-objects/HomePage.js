@@ -15,6 +15,16 @@ export class HomePage extends AbstractPage {
         this.logoutName = page.getByRole('button', { name: 'Signin' });
         this.searchField = page.locator('//input[@id="searchTerm"]');
         this.searchResultLocator = page.getByRole('listitem').filter({ has: page.locator('a') });
+        this.loginForm = page.locator('//div[@class="offset3 span6"]');
+        this.errorMessage = page.locator('//div[@class="alert alert-error"]');
+    };
+
+    async snapshotLoginForm() {
+        expect(await this.loginForm.screenshot()).toMatchSnapshot('login-form.png');
+    };
+
+    async snapshotErrorMessage() {
+        expect(await this.errorMessage.screenshot()).toMatchSnapshot('login-error.png');
     };
 
     //Define home page methods
@@ -24,6 +34,7 @@ export class HomePage extends AbstractPage {
 
     async login(username, password) {
         await this.signInButton.click();
+        await this.snapshotLoginForm()
         const loginPage = new LoginPage(this.page);
         await loginPage.usernameInput.type(username);
         await loginPage.userPasswordInput.type(password);
@@ -41,6 +52,7 @@ export class HomePage extends AbstractPage {
 
     async assertErrorMessage() {
         await expect(this.errorMessage).toContainText('Login and/or password are wrong.');
+        await this.snapshotErrorMessage();
     };
 
     async assertLogOut() {

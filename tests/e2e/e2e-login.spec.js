@@ -1,7 +1,7 @@
 import { test } from '@playwright/test';
 import { HomePage } from '../../page-objects/HomePage';
 
-test.describe('Login / Logout flow', () => {
+test.describe.only('Login / Logout flow', () => {
 
     test.beforeEach(async ({ page }) => {
         const homePage = new HomePage(page);

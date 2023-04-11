@@ -11,7 +11,7 @@ import { defineConfig, devices } from '@playwright/test';
  * @see https://playwright.dev/docs/test-configuration
  */
 export default defineConfig({
-    testDir: './tests/e2e',
+    testDir: './tests/visual',
     /* Maximum time one test can run for. */
     timeout: 30 * 1000,
     expect: {
@@ -84,7 +84,7 @@ export default defineConfig({
     ],
 
     /* Folder for test artifacts such as screenshots, videos, traces, etc. */
-    outputDir: 'e2e/test-results/',
+    outputDir: 'test-results/',
 
     /* Run your local dev server before starting the tests */
     // webServer: {
